@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!--
+/*********************************************************************************************************************************************
+ * File Name: frozencoltest.html
+ * Project: Silicore
+ * Description: Testing an option for freezing leftmost columns.
+ * Notes: 
+ * ==========================================================================================================================================
+ * Change Log ([MM/DD/YYYY]|[Developer]|[Task Ticket] - [Description]
+ * ==========================================================================================================================================
+ * 01/12/2018|mnutsch|KACE:19755 - Initial creation
+ *
+ ********************************************************************************************************************************************/
+
+-->
+<html>
+  <head>
+      <title>Frozen Column Test</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link type="text/css" rel="stylesheet" href="frozencolteststyle.css">
+      
+      <script type="text/javascript">
+     
+      function moveCols()
+      {
+        //MOVE THE LEFT COLUMNS
+        var scrollingContentElement = document.getElementById("scrollingContent");
+        var scrollPosition = scrollingContentElement.scrollTop;
+        var scrollMax = scrollingContentElement.scrollHeight - scrollingContentElement.clientHeight;
+        var percentScroll = scrollPosition / scrollMax;
+        
+        console.log("percentScroll for height == " + percentScroll);
+        
+        var leftColCells1;
+        var leftColCells2;
+        
+        //read the table cells into an array
+        leftColCells1 = document.getElementsByClassName("leftCol1");
+        leftColCells2 = document.getElementsByClassName("leftCol2");
+        
+        //for each cell change its position based on the scroll amount
+      
+        for (i = 0; i < leftColCells1.length; i++) 
+        {
+          leftColCells1[i].style.marginTop = ((0 - (percentScroll * scrollMax)) + 20 + "px");
+          leftColCells2[i].style.marginTop = ((0 - (percentScroll * scrollMax)) + 20 + "px");
+        }
+        
+        //MOVE THE TOP COLUMNS
+        var scrollingContentElement = document.getElementById("scrollingContent");
+        var scrollPosition = scrollingContentElement.scrollLeft;
+        var scrollMax = scrollingContentElement.scrollWidth - scrollingContentElement.clientWidth;
+        var percentScroll = scrollPosition / scrollMax;
+        
+        console.log("percentScroll for width == " + percentScroll);
+        
+        var topRowCells;
+        var topLeftHead1;
+        var topLeftHead1;
+        
+        //read the table cells into an array
+        topRowCells = document.getElementsByClassName("headContent");
+        
+        //for each cell change its position based on the scroll amount
+      
+        for (i = 0; i < topRowCells.length; i++) 
+        {
+          topRowCells[i].style.marginLeft = ((0 - (percentScroll * scrollMax)) + (i * 104) + "px");          
+        }
+        
+      }
+    </script>
+      
+  </head>
+  <body>
+    <div class="wrapperBox">
+      <div id="scrollingContent" class="scrollingContent" onscroll="moveCols();">
+          <table>
+            <tr><th class="leftHead1"><input type="checkbox"></th><th class="leftHead2">#</th><th class="headContent col0">Lorem Ipsum</th><th class="headContent col1">Lorem Ipsum</th><th class="headContent col2">Lorem Ipsum</th><th class="headContent col3">Lorem Ipsum</th><th class="headContent col4">Lorem Ipsum</th><th class="headContent col5">Lorem Ipsum</th><th class="headContent col6">Lorem Ipsum</th><th class="headContent col7">Lorem Ipsum</th><th class="headContent col8">Lorem Ipsum</th></tr>
+            <tr><td class="leftCol1"><input type="checkbox"></td><td class="leftCol2">1</td><td class="bodyContent">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td></tr>
+            <tr><td class="leftCol1"><input type="checkbox"></td><td class="leftCol2">2</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td></tr>
+            <tr><td class="leftCol1"><input type="checkbox"></td><td class="leftCol2">3</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td></tr>
+            <tr><td class="leftCol1"><input type="checkbox"></td><td class="leftCol2">4</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td></tr>
+            <tr><td class="leftCol1"><input type="checkbox"></td><td class="leftCol2">5</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td></tr>
+            <tr><td class="leftCol1"><input type="checkbox"></td><td class="leftCol2">6</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td></tr>
+            <tr><td class="leftCol1"><input type="checkbox"></td><td class="leftCol2">7</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td></tr>
+            <tr><td class="leftCol1"><input type="checkbox"></td><td class="leftCol2">8</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td></tr>
+            <tr><td class="leftCol1"><input type="checkbox"></td><td class="leftCol2">9</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td></tr>
+            <tr><td class="leftCol1"><input type="checkbox"></td><td class="leftCol2">10</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td></tr>
+            <tr><td class="leftCol1"><input type="checkbox"></td><td class="leftCol2">11</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td></tr>
+            <tr><td class="leftCol1"><input type="checkbox"></td><td class="leftCol2">12</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td></tr>
+            <tr><td class="leftCol1"><input type="checkbox"></td><td class="leftCol2">13</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td></tr>
+            <tr><td class="leftCol1"><input type="checkbox"></td><td class="leftCol2">14</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td></tr>
+            <tr><td class="leftCol1"><input type="checkbox"></td><td class="leftCol2">15</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td><td class="bodyContent">Lorem Ipsum</td></tr>
+          </table>
+      </div>
+    </div>
+   
+    
+  </body>
+</html>

@@ -1,0 +1,172 @@
+/*******************************************************************************************************************************************
+ * File Name: frozencolteststyle.css
+ * Project: Silicore
+ * Description: Testing an option for freezing leftmost columns.
+ * Notes:
+ * =========================================================================================================================================
+ * Change Log ([MM/DD/YYYY]|[Developer]|[Task Ticket] - [Description]
+ * =========================================================================================================================================
+ * 01/12/2018|mnutsch|KACE:KACE:19755 - Initial creation
+ * 
+ ******************************************************************************************************************************************/
+
+/* basic table styling */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border-top: 1px solid grey;
+}
+
+/* basic table cell styling */
+td {
+  margin: 0;
+  margin-top: 19px; /* adjust this based on the height of the table header row + border */
+  border: 1px solid grey;
+  white-space: nowrap;
+  border-top-width: 0px;
+}
+
+/* table header cell styling */
+th {
+  position: fixed;
+  margin: 0; 
+  margin-top: 0px;
+  border: 1px solid grey;
+  height: 18px; /* adjust this to resize the header row */
+  white-space: nowrap;
+  border-top-width: 0px;
+}
+
+/* wrapper around the table for scrolling */
+div.scrollingContent {
+  width: 500px;
+  overflow-x: scroll;
+  margin-left: 67px;
+  margin-top: 19px;
+  overflow-y: scroll;
+  padding: 0;
+  max-height: 150px;
+}
+
+/* wrapper around the table for clipping absolutely positioned overflow */
+div.wrapperBox {
+  position: absolute;
+  clip: rect(19px,566px,169px,22px); /* Adjust these values so that it exactly surrounds your table. */
+  
+}
+
+/* This is the leftmost column other than the header */
+.leftCol1 {
+  position: fixed;
+  width: 19px; /* set to the desired width */
+  left: 30px; /* adjust this as appropriate */
+  top: auto;
+  border-top-width: 1px; /* only relevant for first row */  
+  margin-top: 20px; /* this is off by 1 px to compensate for top border*/  
+  height: 18px; /* This should match the height of leftCol2 */
+  
+  background-color: white; /* This is needed so that we don't see the other cells as they slide behind it */
+  z-index: 2; /* This is needed so that we don't see the other cells as they slide behind it */
+}
+
+/* This is the second from left column other than the header */
+.leftCol2 {
+  position: fixed;
+  width: 19px; /* set to the desired width */
+  left: 52px; /* adjust this as appropriate. It should equal the value in leftCol1 + the width of leftCol1 + borders */
+  top: auto;
+  border-top-width: 1px; /*only relevant for first row */
+  margin-top: 20px; /* this is off by 1 px to compensate for top border*/  
+  height: 18px; /* This should match the height of leftCol1 */  
+  background-color: white; /* This is needed so that we don't see the other cells as they slide behind it */
+  z-index: 2; /* This is needed so that we don't see the other cells as they slide behind it */
+}
+
+/* This is the leftmost column inside the header row. */
+.leftHead1 {
+  position: fixed;
+  width: 19px;
+  left: 30px;
+  top: auto;
+  border-top-width: 1px;
+  /*only relevant for first row*/
+  margin-top: -1px;
+  /*compensate for top border*/
+  height: 18px;
+  
+  background-color: white; /* This is needed so that we don't see the other cells as they slide behind it */
+  z-index: 2; /* This is needed so that we don't see the other cells as they slide behind it */
+}
+
+/* This is the second from left column inside the header row. */
+.leftHead2 {
+  position: fixed;
+  width: 19px;
+  left: 52px; /* set to the width of  */
+  top: auto;
+  border-top-width: 1px;
+  /*only relevant for first row*/
+  margin-top: -1px;
+  /*compensate for top border*/
+  height: 18px;
+  
+  background-color: white; /* This is needed so that we don't see the other cells as they slide behind it */
+  z-index: 2; /* This is needed so that we don't see the other cells as they slide behind it */
+}
+
+/* This is for cells inside the table that are not absolutely positioned. */
+.bodyContent {
+  position: relative;
+  background-color: yellow; /* This is here just so that the example is easy to see */
+  min-width: 100px; /* This is necessary so that the browser doesn't automatically resize the cell ' */
+  max-width: 100px; /* This is necessary so that the browser doesn't automatically resize the cell ' */
+  overflow: hidden; /* This is so that excess content doesn't bleed over into other cells. It obiously assumes that the content won't be bigger than this. */
+}
+
+/* This is for header row cells other than the 2 leftmost columns */ 
+.headContent {
+  border-top-width: 1px; /* This is only relevant for first row. */  
+  margin-top: -1px; /* This compensates for the top border.*/ 
+  background-color: white; /* This is needed so that we don't see the other cells as they slide behind it */
+  z-index: 1; /* This is needed so that we don't see the other cells as they slide behind it */
+  min-width: 100px; /* This is necessary so that the browser doesn't automatically resize the cell ' */
+  max-width: 100px; /* This is necessary so that the browser doesn't automatically resize the cell ' */
+  overflow: hidden; /* This is so that excess content doesn't bleed over into other cells. It obiously assumes that the content won't be bigger than this. */
+}
+
+/* These are for specific columns in the header */
+.col0 {
+ margin-left: 0px; /* starts the first non-frozen row to the left (3rd column)  */
+}
+
+.col1 {
+ margin-left: 104px; /* should be equal to n * (cell width + cell borders) */
+}
+
+.col2 {
+ margin-left: 208px; /* should be equal to n * (cell width + cell borders) */
+}
+
+.col3 {
+ margin-left: 312px; /* should be equal to n * (cell width + cell borders) */
+}
+
+.col4 {
+ margin-left: 416px; /* should be equal to n * (cell width + cell borders) */
+}
+
+.col5 {
+ margin-left: 520px; /* should be equal to n * (cell width + cell borders) */
+}
+
+.col6 {
+ margin-left: 624px; /* should be equal to n * (cell width + cell borders) */
+}
+
+.col7 {
+ margin-left: 728px; /* should be equal to n * (cell width + cell borders) */
+}
+
+.col8 {
+ margin-left: 832px; /* should be equal to n * (cell width + cell borders) */
+}
