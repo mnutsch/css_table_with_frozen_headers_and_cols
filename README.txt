@@ -375,11 +375,20 @@ function moveCols()
   leftColCells2 = document.getElementsByClassName("leftCol2");
 
   //for each cell change its position based on the scroll amount
-
   for (i = 0; i < leftColCells1.length; i++) 
   {
-    leftColCells1[i].style.marginTop = ((0 - (percentScroll * scrollMax)) - 1 + "px");
-    leftColCells2[i].style.marginTop = ((0 - (percentScroll * scrollMax)) - 1 + "px");
+    //Depending on where the scroll bar is, move the leftmost cells appropriately. 
+    if(percentScroll < 0.12) //dev note: adjust this value based on testing
+    {
+      //This is needed because otherwise the top row of table body gets hidden behind the header.
+      leftColCells1[i].style.marginTop = ((0 - (percentScroll * scrollMax)) + 20 + "px");
+      leftColCells2[i].style.marginTop = ((0 - (percentScroll * scrollMax)) + 20 + "px");
+    }
+    else
+    {
+      leftColCells1[i].style.marginTop = ((0 - (percentScroll * scrollMax)) - 1 + "px");
+      leftColCells2[i].style.marginTop = ((0 - (percentScroll * scrollMax)) - 1 + "px");
+    }
   }
 
   //MOVE THE TOP COLUMNS
