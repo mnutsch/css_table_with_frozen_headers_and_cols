@@ -378,8 +378,8 @@ function moveCols()
 
   for (i = 0; i < leftColCells1.length; i++) 
   {
-    leftColCells1[i].style.marginTop = ((0 - (percentScroll * scrollMax)) + 20 + "px");
-    leftColCells2[i].style.marginTop = ((0 - (percentScroll * scrollMax)) + 20 + "px");
+    leftColCells1[i].style.marginTop = ((0 - (percentScroll * scrollMax)) - 1 + "px");
+    leftColCells2[i].style.marginTop = ((0 - (percentScroll * scrollMax)) - 1 + "px");
   }
 
   //MOVE THE TOP COLUMNS
