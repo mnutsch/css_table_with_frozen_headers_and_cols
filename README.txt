@@ -1,6 +1,9 @@
 # css_table_with_frozen_headers_and_cols
 This repo contains instructions on how to make an HTML table where the header row and leftmost columns are frozen using CSS and JavaScript.
 
+See the example at:
+https://mnutsch.github.io/frozen_column_header_table/frozencoltest.html
+
 Web Design: Freezing the Top Row and Left Column of a Table
 Author: Matt Nutsch
 Date: 1-12-2018
